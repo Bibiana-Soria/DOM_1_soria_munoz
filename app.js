@@ -11,6 +11,7 @@ btnGenerar.addEventListener('click', () => {
     // Validación simple mediante el DOM
     if (correo === "" || !correo.includes('@')) {
         alert("Por favor, introduce un correo electrónico válido.");
+        console.error('No pusiste arroba :(')
         return;
     }
 
@@ -19,6 +20,8 @@ btnGenerar.addEventListener('click', () => {
     const salt = "TOKEN_KEY_2026_";
     const timestamp = Date.now();
     const tokenSimulado = btoa(`${salt}${correo}_${timestamp}`);
+    const nombre_alumno = "Bibiana Soria";
+    const fecha = new Date();
 
     // 4. Manipulación del DOM para mostrar el resultado
     // Insertamos el texto del token dentro del div correspondiente
@@ -30,4 +33,5 @@ btnGenerar.addEventListener('click', () => {
     // Opcional: Cambiamos el estilo dinámicamente mediante el DOM para dar feedback visual
     tokenOutput.style.backgroundColor = "#e8f8f5"; 
     tokenOutput.style.borderLeftColor = "#2ecc71"; // Cambia a verde al completarse
+    console.info(nombre_alumno + " Terminó la práctica el: " + fecha )
 });
